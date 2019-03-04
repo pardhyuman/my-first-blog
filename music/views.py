@@ -123,7 +123,7 @@ def favorite_album(request, album_id):
 
 
 def index(request):
-    if not request.user.is_authenticated:
+    if not request.user.is_authenticated():
         return render(request, 'music/login.html')
     else:
         albums = Album.objects.filter(user=request.user)
@@ -192,7 +192,7 @@ def register(request):
 
 
 def songs(request, filter_by):
-    if not request.user.is_authenticated:
+    if not request.user.is_authenticated():
         return render(request, 'music/login.html')
     else:
         try:
